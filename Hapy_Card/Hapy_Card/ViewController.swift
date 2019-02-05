@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         firstCard.setImage(nil, for: .normal)
         // when reset game, clear foreground image
         firstCard.setBackgroundImage(UIImage(named: firstCardFace), for: .disabled)
+        // disabled to not show the background image of button
         firstCard.setImage(UIImage(named: "back"), for: .normal)
         
         let secondCardFace = shuffle[1]
@@ -94,11 +95,15 @@ class ViewController: UIViewController {
         thirdCard.setBackgroundImage(UIImage(named: sixthCardFace), for: .disabled)
         // store 2 next card to foreground and background image of third card
         controlGame.setTitle("Hapy", for: .normal)
+        // After press playing game, control game button is Hapy
     }
     
-    
+    // At first, if control game is Play, touching card have no action
+    // If control game is Hapy, touching card will open card
     @IBAction func pressFirstCard(_ sender: UIButton) {
         if(controlGame.titleLabel?.text == "Hapy"){
+            // store face to background of button
+            // store back image to foreground of button
             let firstCardImageFace = firstCard.backgroundImage(for: .disabled)
             if(firstCard.currentImage == UIImage(named: "back")){
                 firstCard.setImage(firstCardImageFace, for: .normal)
@@ -125,6 +130,9 @@ class ViewController: UIViewController {
        
     }
     
+    // third card is special case
+    // If first card have image (control game is Hapy), we can touch the third card
+    // At first, touching third card have no action
     @IBAction func pressThirdCard(_ sender: UIButton) {
         if(firstCard.currentImage != nil){
             let thirdCardImageFace = thirdCard.backgroundImage(for: .disabled)
@@ -167,6 +175,9 @@ class ViewController: UIViewController {
         
     }
     
+    // third card is special case
+    // If first card have image (control game is Hapy), we can touch the third card
+    // At first, touching third card have no action
     @IBAction func pressSixthCard(_ sender: UIButton) {
         if(fourthCard.currentImage != nil){
             let sixthCardImageFace = sixthCard.backgroundImage(for: .disabled)
