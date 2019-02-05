@@ -39,8 +39,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         controlGame.setTitle("Play", for: .normal)
-        
-        
+        self.takeCardP2.transform = self.takeCardP2.transform.rotated(by: CGFloat(Double.pi))
+
     }
 
     @IBAction func pressPlay(_ sender: UIButton) {
@@ -52,26 +52,26 @@ class ViewController: UIViewController {
         let firstCardFace = shuffle[0]
         firstCard.setImage(nil, for: .normal)
         // when reset game, clear foreground image
-        firstCard.setImage(UIImage(named: firstCardFace), for: .disabled)
-        firstCard.setBackgroundImage(UIImage(named: "back"), for: .normal)
+        firstCard.setBackgroundImage(UIImage(named: firstCardFace), for: .disabled)
+        firstCard.setImage(UIImage(named: "back"), for: .normal)
         
         let secondCardFace = shuffle[1]
         fourthCard.setImage(nil, for: .normal)
         // when reset game, clear foreground image
-        fourthCard.setImage(UIImage(named: secondCardFace), for: .disabled)
-        fourthCard.setBackgroundImage(UIImage(named: "back"), for: .normal)
+        fourthCard.setBackgroundImage(UIImage(named: secondCardFace), for: .disabled)
+        fourthCard.setImage(UIImage(named: "back"), for: .normal)
         
         let thirdCardFace = shuffle[2]
         secondCard.setImage(nil, for: .normal)
         // when reset game, clear foreground image
-        secondCard.setImage(UIImage(named: thirdCardFace), for: .disabled)
-        secondCard.setBackgroundImage(UIImage(named: "back"), for: .normal)
+        secondCard.setBackgroundImage(UIImage(named: thirdCardFace), for: .disabled)
+        secondCard.setImage(UIImage(named: "back"), for: .normal)
         
         let fourthCardFace = shuffle[3]
         fifthCard.setImage(nil, for: .normal)
         // when reset game, clear foreground image
-        fifthCard.setImage(UIImage(named: fourthCardFace), for: .disabled)
-        fifthCard.setBackgroundImage(UIImage(named: "back"), for: .normal)
+        fifthCard.setBackgroundImage(UIImage(named: fourthCardFace), for: .disabled)
+        fifthCard.setImage(UIImage(named: "back"), for: .normal)
         // give 1 card to host then 1 card to guess
         
         let fifthCardFace = shuffle[4]
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressFirstCard(_ sender: UIButton) {
         if(controlGame.titleLabel?.text == "Hapy"){
-            let firstCardImageFace = firstCard.image(for: .disabled)
+            let firstCardImageFace = firstCard.backgroundImage(for: .disabled)
             if(firstCard.currentImage == UIImage(named: "back")){
                 firstCard.setImage(firstCardImageFace, for: .normal)
                 firstCard.setBackgroundImage(UIImage(named: "blank_Card"), for: .normal)
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressSecondCard(_ sender: UIButton) {
         if(controlGame.titleLabel?.text == "Hapy"){
-            let secondCardImageFace = secondCard.image(for: .disabled)
+            let secondCardImageFace = secondCard.backgroundImage(for: .disabled)
             if(secondCard.currentImage == UIImage(named: "back")){
                 secondCard.setImage(secondCardImageFace, for: .normal)
                 secondCard.setBackgroundImage(UIImage(named: "blank_Card"), for: .normal)
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressFourthCard(_ sender: UIButton) {
         if(controlGame.titleLabel?.text == "Hapy"){
-            let fourthCardImageFace = fourthCard.image(for: .disabled)
+            let fourthCardImageFace = fourthCard.backgroundImage(for: .disabled)
             if(fourthCard.currentImage == UIImage(named: "back")){
                 fourthCard.setImage(fourthCardImageFace, for: .normal)
                 fourthCard.setBackgroundImage(UIImage(named: "blank_Card"), for: .normal)
@@ -155,7 +155,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressFifthCard(_ sender: UIButton) {
         if(controlGame.titleLabel?.text == "Hapy"){
-            let fifthCardImageFace = fifthCard.image(for: .disabled)
+            let fifthCardImageFace = fifthCard.backgroundImage(for: .disabled)
             if(fifthCard.currentImage == UIImage(named: "back")){
                 fifthCard.setImage(fifthCardImageFace, for: .normal)
                 fifthCard.setBackgroundImage(UIImage(named: "blank_Card"), for: .normal)
